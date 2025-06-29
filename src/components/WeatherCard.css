@@ -1,0 +1,110 @@
+/* WeatherCard.css — stunning glassmorphic weather card */
+
+:root {
+  --card-bg: rgba(255, 255, 255, 0.15);
+  --card-border: rgba(255, 255, 255, 0.3);
+  --card-shadow: rgba(0, 0, 0, 0.5);
+  --gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.weather-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  color: #fff;
+  text-align: center;
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  box-shadow: 0 8px 20px var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 340px;
+  margin: 2rem auto;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.weather-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+.weather-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: var(--gradient);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.weather-card h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.temp-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.temp-icon {
+  width: 40px;
+  height: 40px;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
+}
+
+.temp {
+  font-size: 2.2rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #89f7fe, #66a6ff);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.condition {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 480px) {
+  .weather-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .weather-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .temp {
+    font-size: 1.9rem;
+  }
+
+  .condition {
+    font-size: 1rem;
+  }
+
+  .temp-icon {
+    width: 32px;
+    height: 32px;
+  }
+}

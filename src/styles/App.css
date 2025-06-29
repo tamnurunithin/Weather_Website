@@ -1,0 +1,75 @@
+/* ------------------------------------------------------------------
+   Reset & global background
+-------------------------------------------------------------------*/
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /* smooth scrolling on touch devices */
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+
+  /* subtle dark-blue gradient with transparency */
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(81, 99, 119, 0.9) 50%,
+    rgba(29, 73, 107, 0.85) 100%
+  );
+
+  /* solid fallback while gradient loads */
+  background-color: rgba(0, 71, 237, 0.95);
+}
+
+/* ------------------------------------------------------------------
+   Main App “card” (translucent overlay)
+-------------------------------------------------------------------*/
+.App {
+  max-width: 800px;        /* keep content narrow for readability */
+  margin: 2rem auto;       /* centre horizontally & add top gap */
+  padding: 2rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+
+  /* glassy overlay */
+  backdrop-filter: blur(6px);
+  background-color: rgba(35, 36, 37, 0.35);
+  border-radius: 16px;
+
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* ------------------------------------------------------------------
+   Heading
+-------------------------------------------------------------------*/
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+/* ------------------------------------------------------------------
+   Error Chip
+-------------------------------------------------------------------*/
+.error {
+  color: #ffdddd;
+  background-color: rgba(255, 0, 0, 0.2);
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-top: 1rem;
+  display: inline-block;
+  font-weight: bold;
+}
+
+/* ------------------------------------------------------------------
+   Fade-in animation
+-------------------------------------------------------------------*/
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}

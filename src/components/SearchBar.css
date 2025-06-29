@@ -1,0 +1,109 @@
+/* SearchBar.css — sleek, modern, high-quality UI */
+
+:root {
+  --search-bg: rgba(255, 255, 255, 0.12);
+  --border-color: rgba(255, 255, 255, 0.3);
+  --highlight: #56CCF2;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --gradient: linear-gradient(135deg, #6dd5fa 0%, #2980b9 100%);
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 2rem auto;
+  z-index: 20;
+}
+
+.search-container form {
+  display: flex;
+  align-items: center;
+  background: var(--search-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  overflow: hidden;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 6px 18px var(--shadow);
+  transition: box-shadow 0.3s ease;
+}
+
+.search-container input[type="text"] {
+  flex: 1;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-weight: 500;
+}
+
+.search-container input::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.search-container button {
+  background: var(--gradient);
+  color: #fff;
+  padding: 0.9rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-container button:hover {
+  background: linear-gradient(135deg, #56CCF2 0%, #2F80ED 100%);
+}
+
+.autocomplete-list {
+  margin-top: 0.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 14px var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.autocomplete-list li {
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  color: #fff;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.25s ease;
+}
+
+.autocomplete-list li:last-child {
+  border-bottom: none;
+}
+
+.autocomplete-list li:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--highlight);
+}
+
+@media (max-width: 480px) {
+  .search-container form {
+    flex-direction: column;
+    border-radius: 10px;
+  }
+
+  .search-container input[type="text"] {
+    width: 100%;
+    padding: 0.8rem 1rem;
+  }
+
+  .search-container button {
+    width: 100%;
+    border-radius: 0;
+  }
+}

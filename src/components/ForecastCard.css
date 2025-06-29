@@ -1,0 +1,131 @@
+/* ForecastCard.css — polished, responsive, and modern */
+
+/*--------------------------------------------------
+  Layout & Typography
+--------------------------------------------------*/
+
+.forecast-container {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.forecast-container h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/*--------------------------------------------------
+  Grid Layout
+--------------------------------------------------*/
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/*--------------------------------------------------
+  Forecast Card Styling
+--------------------------------------------------*/
+
+:root {
+  /* Glassmorphism base colours */
+  --card-bg: rgba(255, 255, 255, 0.15);
+  --card-border: rgba(255, 255, 255, 0.35);
+  --card-shadow: rgba(0, 0, 0, 0.4);
+}
+
+.forecast-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 1.25rem 1rem;
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  box-shadow: 0 6px 16px var(--card-shadow);
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.forecast-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.55);
+}
+
+/* Decorative gradient border (pseudo-element) */
+.forecast-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px; /* thickness */
+  background: linear-gradient(135deg, #56CCF2 0%, #2F80ED 50%, #B721FF 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+/*--------------------------------------------------
+  Card Content
+--------------------------------------------------*/
+
+.forecast-card h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.forecast-card img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.forecast-card p {
+  margin: 0.25rem 0;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Weather condition text colours */
+.forecast-card p:last-of-type {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/*--------------------------------------------------
+  Responsive Tweaks
+--------------------------------------------------*/
+
+@media (max-width: 480px) {
+  .forecast-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .forecast-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .forecast-card img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .forecast-card p {
+    font-size: 0.9rem;
+  }
+}
